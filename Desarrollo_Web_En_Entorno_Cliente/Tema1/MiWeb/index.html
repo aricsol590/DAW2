@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="./js/primer.js"></script>
     <title>IES TRAFALGAR</title>
-</head>
-<body>
-    <script>
-      /*  console.log('Hola');
-        console.warn('Peligroso');
-        console.error('Has cometido un error');
-        alert('Cuidado!');
-        let edad=prompt('How old are you?',85);
-        let esjefe=confirm('Eres jefe?');
-        console.log(edad);
-        alert(`Tienes ${edad} años`);
-        alert(esjefe)*/
+  </head>
+  <body>
+    <p id="p1">Esto es un párrafo</p>
+    <button
+      type="button"
+      onclick="document.getElementById('p1').innerHTML='PARAFARMACIA'"
+    >
+      Esto es un botón
+    </button>
+    <h1>Modificando las propiedades de un objeto del DOM</h1>
+    <img
+      id="img1"
+      src="./img/k.jpg"
+      onclick="cambioFoto()"
+      width="1080"
+      height="900"
+    />
+    <p>Haz click en la foto</p>
 
-</script>
-</body>
+    <p id="p2">Comprobando</p>
+    <button type="button" onclick="cambiacss()">Cambia el estilo</button>
+    <script>
+      function cambioFoto() {
+        var imagen = document.getElementById("img1");
+        if (imagen.src.match("k")) {
+          imagen.src = "./img/pe.jpg";
+        } else {
+          imagen.src = "./img/k.jpg";
+        }
+      }
+      function cambiacss() {
+        var parrafo = document.getElementById("p2");
+        parrafo.style.fontSize = "50px";
+        parrafo.style.color = "red";
+      }
+    </script>
+    <script>
+      let edad = prompt("Qué edad tienes?", 18);
+      if (edad >= 18) {
+        alert(`Eres mayor de edad, pues tienes ${edad} años`);
+      } else {
+        alert(`Eres menor de edad, pues tienes ${edad} años`);
+      }
+    </script>
+    <script>
+      terminamos();
+      function terminamos() {
+        document.write("<h1>Terminamos el tema</h1>");
+      }
+    </script>
+  </body>
 </html>
