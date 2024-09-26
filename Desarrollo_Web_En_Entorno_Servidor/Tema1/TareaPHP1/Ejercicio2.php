@@ -10,5 +10,5 @@ echo "\n";
 foreach ($lista as $posicion) {
     echo "$posicion\n";
 }
-//A la lista le pasas varios parámetros directamente.
+//La diferencia entre array y lista es que a la lista le pasas varios parámetros directamente.
 ?>

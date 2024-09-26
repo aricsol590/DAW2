@@ -9,6 +9,6 @@ foreach($array as $elementos){
     }
     $a++;
 }
-$array[4]="Lunes";
+$array[0]="Lunes";
 print_r($array);
 ?>
