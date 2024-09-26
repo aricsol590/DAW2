@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nr1=3;
+        let nr2="3";
+        console.log(typeof nr1);
+        console.log(typeof nr2);
+        console.log(nr1*nr2);
+        console.log(nr1+nr2);
+        console.log(nr1-nr2);
+        console.log(nr1**nr2);
+        let nr3 = 6;
+        console.log(nr3%nr2);
+        let nr4 = 23;
+        nr4=String(nr4);
+        nr2=Number(nr2);
+        console.log(typeof nr2);
+        console.log(nr1+nr2);
+        let cadena="Todo diferenta a la vacia es TRUE";
+        cadena=Boolean(cadena);
+        console.log(cadena,typeof cadena);
+        cadena="";
+        console.log(cadena,typeof cadena);
+        cadena=Boolean(cadena);
+        console.log(cadena,typeof cadena);
+        let valor_null=null;
+        valor_null=Number(valor_null);
+        console.log(valor_null, typeof valor_null);
+        let saludos="Hola";
+        saludos=Number(saludos);
+        console.log(saludos,typeof saludos);
+        nr1=50;
+        nr2=20;
+        //El resto de 50 con 20 es 0
+        let resto=nr1%nr2;
+        console.log(`El resto de ${nr1} dividido por ${nr2} da como resultado: ${resto}`);
+        nr2=3;
+        console.log(nr1/nr2);
+        let division = nr1/nr2;
+        console.log(division.toFixed(2));
+        console.log(division.toExponential(2));
+        nr1=1;
+        console.log(nr1++);
+        console.log(nr1);
+        console.log(++nr1);
+        console.log(nr1);
+        //Pidiendo por teclado los lados de un triángulo.
+        //Calcular la hipotenusa mostrandola redondeando los decimales.
+        let entrada1=prompt("Primer lado");
+        let entrada2=prompt("Segundo lado");
+        let resultado = (entrada1**entrada1 + entrada2**entrada2);
+        let final = Math.sqrt(resultado).toFixed(2);
+        console.log(`La hipotenusa de ${entrada1} y ${entrada2} es: ${final}`);
+        //Altura en pulgadas y libras
+        let altura = prompt("Introduce tu altura en pulgadas");
+        let peso = prompt ("Introduce tu peso en libras");
+        let alturacm = altura*2.54;
+        let pesokg = peso/2.046;
+        console.log(`Tu altura es de: ${alturacm} cm\nTu peso es de ${pesokg} kg`);
+
+    </script>
+</body>
+</html>
