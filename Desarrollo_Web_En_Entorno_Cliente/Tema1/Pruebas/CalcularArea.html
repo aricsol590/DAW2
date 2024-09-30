@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="radio">
+    <p id="p"></p>
+    <p id="p2"></p>
+    <input type="button" id="calcular" value="Calcular">
+    <script>
+        var boton = document.getElementById("calcular");
+        boton.addEventListener("click",calcularArea,false);
+        function calcularArea(){
+            var radio = parseInt(document.getElementById("radio").value);
+            var area = Math.PI * radio * radio;
+            var longitud = 2 * Math.PI * radio;
+            document.getElementById("p").innerHTML = area;
+            document.getElementById("p2").innerHTML = longitud;
+        }
+    </script>
+</body>
+</html>
