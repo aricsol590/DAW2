@@ -1,3 +1,4 @@
+
 <?php
 $nombre="Alejandro*Rico*Soler";
 $array=explode("*",$nombre);
