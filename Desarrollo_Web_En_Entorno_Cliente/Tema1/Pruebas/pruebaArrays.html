@@ -7,15 +7,75 @@
 </head>
 <body>
     <script>
-        let arra1 = new Array("Hola", 34, "Adiós", "Segunda B");
-        let arra2 = ["Cadistas", "Madridistas", "Atleticos", 45];
-        console.log(arra1);
-        console.log(arra2);
-        let arra3 = new Array(10);
-        arra3[1] = "10";
-        console.log(arra3);
-        array4[15]
-        console.log(array4)
+        let array1= new Array ("Hola",34,"Adios","Segunda B");
+        var array2=["Cadistas","Madirdistas","Atleticos",45];
+        console.log(array1);
+        console.log(array2);
+        let array3= new Array(10);
+        array3[6]=10;
+        console.log(array3);
+        let array4=[15];
+        console.log(array4);
+        let array5=["hola",true,32];
+        console.log(typeof array5[1] );
+        const array9=["hola"];
+        array9[0]="Adios";
+        //array9=["Hola","Adios"];
+        //Accedo
+        var coches=["Toyota","Kia","Renault","Juaky"];
+        console.log(coches[0], coches[2],coches[-1]);
+        coches[0]="Telas";
+        console.log(coches);
+        coches[-1]="Mercedes";
+        console.log(coches);
+        console.log(coches.length);
+        let vacio=[];
+        console.log(vacio.length);
+        var numeros=[23,24,25,26];
+        console.log(numeros[numeros.length-1]);
+        numeros[6]="Hola";
+        console.log(numeros);
+        var frutas=["pero","mandarina"];
+        frutas.push("takasnina");
+        console.log(frutas);
+        frutas.push("Coloflor");
+        frutas.splice(2,0,"Tomate");
+        console.log(frutas);
+        frutas.splice(frutas.length-3,0,"Aguacate");
+        frutas.splice(2,2,"Aupa Madrid");
+        console.log(frutas);
+        var verduras=["Letuche","Esprragus","Tortilla Francesa","Papas"];
+        var alimentos=frutas.concat(verduras);
+        var numericos=[1,2,3,4];
+        var arraynumeros=numericos.concat(5,6,7,8,9,10);
+        console.log(arraynumeros);
+        console.log(alimentos);
+        delete alimentos[0];
+        alimentos.pop();
+        alimentos.shift();
+        //Buscando
+        let array8=[1,2,3,4,5,6,7,8,9];
+        let valor= array8.find(e => e === 5);
+        console.log(valor,typeof valor);
+        valor=array8.find(function (e) { return e === 5});
+        console.log(valor,typeof valor);
+        valor=array8.find(e => e === 14);
+        console.log(valor,typeof valor);
+        valor=array8.indexOf(6);
+        console.log(valor,typeof valor);
+        valor=array8.indexOf(12);
+        console.log(valor,typeof valor);
+        array8.push(6);
+        array8.push(-2);
+        console.log(array8);
+        valor=array8.indexOf(6,7);
+        console(valor);
+        valor=array8.lastIndexOf(6);
+        console.log(valor);
+        console.log(frutas.sort());
+        console.log(array8.sort());
+        console.log(frutas.reverse());
+        console.log(array8.reverse());
     </script>
 </body>
 </html>
