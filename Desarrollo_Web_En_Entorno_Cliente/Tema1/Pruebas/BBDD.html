@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+    <h3>Usuario</h3>
+    <input type="text" id="usuario" placeholder="Juaky">
+    <h3>Clave de acceso</h3>
+    <input type="text" id="clave" placeholder="#imprenta15" minlength="4" maxlength="10" size="10">
+    <br><br>
+    <input type="button" value="Cargar en la BD">
+    </table>
+    <script>
+        class Persona{
+            constructor(Nombre,Clave){
+                this.Nombre=Nombre;
+                this.Clave=Clave;
+            }
+        };
+        var boton = document.getElementById("boton");
+        boton.addEventListener("click",rellenar,false);
+        
+        function rellenar(){
+            var getnombre = document.getElementById("usuario").value;
+            var getclave = document.getElementById("clave").value;
+            var usuario = new Persona(getnombre,getclave);
+            console.log(usuario);
+        }
+       /* 'use script';
+        var perro={
+            nombre: "Julian",
+            peso: "2.4",
+            color: "Blanco",
+            raza: "Elefante",
+            porculero: true
+        };
+        console.log(perro,perro.peso);
+        console.log(perro["edad"]);
+        perro.edad=34;
+        console.log(perro.edad);
+        let años = perro.edad;
+        console.log(años);
+        let variable="edad";
+        perro[variable]=50;
+        console.log(perro.edad)
+        
+
+        var automovil={
+
+        };*/
+    </script>
+</body>
+</html>
