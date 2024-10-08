@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nota;
+        nota = parseInt(prompt("Cual es tu nota 0-10?"));
+        switch (true) {
+
+            case (nota < 5):
+                msg="Suspenso";    
+                break;
+            case (nota >= 5 && nota < 7):
+                msg="Aprobado";
+                break;
+            case (nota >=7 && nota < 9):
+                msg="Notable";
+                break;
+            case (nota >=9 && nota <=10):
+                msg="Sobresaliente";
+                break;
+            default:
+                msg = "Vuelva a introducir la nota";
+                break;
+        }
+        alert("Tu calificación es: " + msg);
+        console.log(msg);
+        //Ejercicio4 pero leyendo tres notas y mostrando su media "Aprobado con una media de: "
+        var nota1,nota2,nota3,media,calificacion;
+        //nota1=parseFloat(prompt("Introduce la primera nota" , 0));
+        //nota2=parseFloat(prompt("Introduce la segunda nota" , 0));
+        //nota3=parseFloat(prompt("Introduce la tercera nota" , 0));
+        media = (nota1+nota2+nota3)/3;
+        if (media<5) {
+            calificacion = "Suspenso con media de: "+media;
+        } else if (media >=5 && media < 7){
+            calificacion = "Aprobado con media de: "+media
+        }else if(media >= 7 && media < 9){
+            calificacion = "Notable con media de: "+ media
+        }else{
+            calificacion = "Sobresaliente con media de: "+media
+        }
+        alert(calificacion);
+        //Ejercicio 5 dos numeros y su diferencia
+        var num1 = parseInt(prompt("Introduce un número"));
+        var num2 = parseInt(prompt("Introduce el segundo número"));
+        var resta;
+        if (num1>num2) {
+            resta = num1-num2;
+            alert("Diferencia entre "+num1+" y "+num2+": "+resta);
+        }else{
+            resta = num2-num1;
+            alert("Diferencia entre "+num2+" y "+num1+": "+resta);
+        }
+        //Ejercicio 6 preguntar por un número y adivinar su cuadrado
+        var random = Math.round(Math.random()*10);
+        var input = prompt("Cual es el cuadrado de " + random);
+        res = random * random;
+        if (res = input) {
+            alert("Correcto!")
+        } else {
+            alert("Error")
+        }
+        //Ejercicio 7
+        let creditos,acceso="Salas: ";
+        creditos = parseInt(prompt("Deme los créditos "));
+        switch (creditos) {
+            case 4:
+                acceso+="Realidad virtual, ";
+            case 3:
+                acceso+="Juegos 3D, ";
+            case 2:
+                acceso+="Juegos 2D, ";
+            case 1:
+                acceso+="Consolas. ";
+            default:
+                break;
+        }
+        alert(acceso);
+        //Ejercicio 9
+        compra = parseInt(prompt("Introduce el importe de la factura"));
+        descuento= 0.0;
+        switch (true) {
+            case (compra >= 100 && compra <300):
+                descuento = 0.05;
+                break;
+            case (compra >= 300 && compra <500):
+                descuento = 0.1;
+                break;
+            case (compra > 500):
+                descuento = 0.15;
+                break;
+            default:
+                break;
+        }
+        console.log(descuento);
+        var total = parseFloat(compra - (compra * descuento));
+        alert("El total de la factura es de: " +total+"€");
+    </script>
+</body>
+</html>
