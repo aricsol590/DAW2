@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(horasRes)
+        actual = new Date();
+        añoActual = actual.getFullYear();
+        navidad = new Date(añoActual,11,25,23,59,59);
+        console.log(navidad);
+        console.log((navidad - actual) / milisegundos);
+milisegundosDia = 1000 * 60 * 60 * 24;
+milisegundosHora = 1000 * 60 * 60;
+milisegundosMinuto = 1000 * 60;
+diasRes = (navidad - actual) / milisegundosDia;
+horasRes = ((navidad - actual) / milisegundosDia) - diasRes;
+    </script>
+</body>
+</html>

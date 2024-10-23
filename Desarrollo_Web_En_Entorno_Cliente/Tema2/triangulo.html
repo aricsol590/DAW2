@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="aqui"></p>
+    <input type="number" id="numero">
+    <button onclick="mostrar()">Mostrar</button>
+    <script>
+        function mostrar(){
+            valor = document.getElementById("numero").value;
+            index=1;
+            for(i = valor; i > 0 ; i--){
+                for(j=index; j>0; j--){
+                    document.getElementById("aqui").innerHTML+="x";
+                }
+                index++;
+                document.getElementById("aqui").innerHTML+="<br>";
+        }
+        document.getElementById("aqui").innerHTML+="<br>----------------------------------------------------------------<br><br>";
+        
+        valor = document.getElementById("numero").value;
+            index=1;
+            index2=valor;
+            for(i = index; i <= valor ; i++){
+                for(j=valor; j>=0; j--){
+                    if (j>=index) {
+                        document.getElementById("aqui").innerHTML+="&nbsp&nbsp";
+                    }else{
+                        document.getElementById("aqui").innerHTML+="x";
+                    }
+                }
+                index2--;
+                index++;
+                
+                document.getElementById("aqui").innerHTML+="<br>";
+        }
+            
+        }
+    </script>
+</body>
+</html>

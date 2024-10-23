@@ -6,3 +6,6 @@ function color2(id) {
   var parrafo = document.getElementById(id);
   parrafo.style.color = "red";
 }
+alert("hola").console.warn();
+console.error("hola")
+
