@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Recorrido de un array</h3>
+    <p id="aqui"></p>
+    <script>
+        var txt="";
+        var txt2="";
+        var dias=["Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo"];
+        dias.forEach(valores);
+        function valores(valor,index,array){
+            txt+=valor+"<br>";
+        }
+        document.getElementById("aqui").innerHTML+=txt+"<br>--------<br>";
+        let laborables = new Array();
+        let dias_laborables=["Lunes","Martes","Miercoles","Jueves","Viernes"];
+        dias_laborables.forEach(function (valor,index,array){
+            array[index] = valor.toUpperCase();
+            laborables.push(array[index].toLowerCase());
+        });
+        console.log(dias_laborables);
+        console.log(laborables);
+        for(i=0;i<laborables.length;i++){
+            console.log(laborables[i]);
+        }
+    </script>
+</body>
+</html>

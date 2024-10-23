@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="salida"></p>
+    <script>
+        /*const fecha = new Date();
+        console.log(fecha);
+        const fecha2 = new Date("1999/04/22 05:19:20");
+        console.log(fecha2);
+
+        //Dia del juicio final
+        const fecha3 = new Date(872817240000);
+        console.log(fecha3);
+        micumple = new Date("2025/04/22 00:00:00.25");
+        console.log(micumple.getDay());
+        console.log(micumple.getDate());
+        console.log(micumple.getMonth());
+        console.log(micumple.getFullYear());
+        console.log(micumple.getHours());
+        console.log(micumple.getMinutes());
+        console.log(micumple.getSeconds());
+        console.log(micumple.getMiliseconds());
+*/      
+window.onload = function (){
+    setInterval(Presentar_Tiempo,1000);
+}
+function Presentar_Tiempo(){
+actual = new Date();
+añoActual = actual.getFullYear();
+navidad = new Date(añoActual,11,25,23,59,59);
+diasRes = Math.floor(miliRes / milisegundosDia);
+    horasRes = (miliRes % milisegundosDia) / milisegundosHora;
+    minutosRes = (miliRes % milisegundosHora) / milisegundosMinuto;
+    segundosRes = (miliRes % milisegundosMinuto) / milisegundosSegundo;
+minutosRes = (miliRes % 1000) / 60;
+horasRes = ((miliRes % 1000) % 60) / 60;
+diasRes = (((miliRes % 1000) % 60) % 60) / 24;
+
+console.log(segundosRes);
+console.log(horasRes);
+console.log(minutosRes);
+//console.log(navidad);
+//console.log((navidad - actual) / milisegundosDia);
+//document.getElementById("salida").innerHTML="Quedan "+(navidad - actual) / milisegundos + " dias para navidad";
+}
+    </script>
+</body>
+</html>

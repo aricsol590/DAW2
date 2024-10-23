@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="aqui"></p>
+    <input type="number" id="numero">
+    <button onclick="mostrar()">Mostrar</button>
+    <script>
+        res = 1;
+        function mostrar(){
+            valor = document.getElementById("numero").value;
+            console.log(valor);
+            for(i = valor; i > 0 ; i--){
+            res *= i;
+            if (i > 1) {
+                document.getElementById("aqui").innerHTML+=i+" x ";
+            } else {
+                document.getElementById("aqui").innerHTML+=i;
+            }
+        }
+        document.getElementById("aqui").innerHTML+=" = " + res;
+            
+        }
+    </script>
+</body>
+</html>
