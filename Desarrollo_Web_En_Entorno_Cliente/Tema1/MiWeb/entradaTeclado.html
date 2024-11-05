@@ -6,7 +6,16 @@
     <title>Document</title>
 </head>
 <body>
+    <p id="p1" name="asd">dasdasdasdas</p>
     <script>
+        parrafo = document.getElementById("p1");
+        esjefe = confirm("¿eres jefe?");
+      //  parrafo.innerHTML=esjefe;
+        parrafo.style.fontStyle05="italic";
+        parrafo.style.fontSize="100px";
+        p2 = document.getElementByName("asd");
+        p2.innerHTML=5;
+        var resultado = 1+2;
         let numero=prompt("Introduce un número");
         console.log(typeof(numero));
         console.log(numero);
@@ -14,6 +23,7 @@
         console.log(typeof(numero));
         let numero2=Number(prompt("Introduce otro número"));
         console.log(typeof(numero2));
+        document.write("<h1>PEPE</h1>");
     </script>
 </body>
 </html>
