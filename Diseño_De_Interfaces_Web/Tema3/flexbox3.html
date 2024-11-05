@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            gap: 2px;
+            min-height: 100vh;
+            font-family: sans-serif;
+        }
+        .main .sidebar, .main .contenido{
+
+        }
+        .sidebar{
+            flex: 1;
+            background-color: aqua;
+            color: black;
+            font-style: none;
+            text-decoration: none;
+            
+        }
+        .contenido{
+            flex: 4;
+            background-color: antiquewhite;
+        }
+        ul li{
+            border-bottom: 1px solid black;
+            width: 53%;
+        }
+        a, a:link{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="main">  
+        <div class="sidebar">  <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Opciones</a></li>
+          <li><a href="#">Planes</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul></div>
+        <div class="contenido">Esto sería el contenido principal</div>
+      </div>
+</body>
+</html>

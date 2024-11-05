@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a1{
+            background-color: aqua;
+            border-radius: 20px 20px;
+            height: 100px;
+            width: 100px;
+        }
+        .b1{
+            background-color: aquamarine;
+            border-radius: 0 0 40px 40px;
+            height: 100px;
+            width: 100px;
+        }
+        .c1{
+            background-color: aqua;
+            border-radius: 20px;
+            width: 100px;
+            height: 100px;
+        }
+        .contenido{
+            width: 80%;
+            max-width: 450px;
+            border: solid 2px green;
+        }
+        .a{
+            border: solid blue;
+        }
+        .b{
+            border: dotted green;
+        }
+        .c{
+            border: dashed violet;
+        }
+        .d{
+            border-top: double blue;
+            border-right: solid red;
+            border-bottom: dotted yellow;
+            border-left: dashed greenyellow;
+        }
+        .caja{
+            background-color: aqua;
+            color: rgb(88, 45, 45);
+            height: 150px;
+            margin: 1rem;
+        }
+        .minimo{
+            width: min-content;
+        }
+        .maximo{
+            width: max-content;
+        }
+        .desbordamiento{
+            border: 1px solid black;
+            min-width: 40px;
+            max-width: 60px;
+            min-height: 50px;
+            max-height: 50px;
+            //para evitar el desbordamiento
+            overflow: scroll;
+        }
+        button{
+            font-family: sans-serif;
+            font-size: 15px;
+            padding: 1rem 2rem;
+            background: none;
+            color: rgb(10, 86, 153);
+            border-image-source:linear-gradient(red,black,white) ;
+            border-image-slice: 1 1 1 1;
+            border-image-width: 0.2em;
+        }
+        .relleno{
+            background-image: linear-gradient(red, grey,black);
+        }
+        .animacion{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2px;
+            padding: 1rem;
+            background-color: rgb(46, 148, 161);
+            border-image-source: conic-gradient(from var(--a),blue, aqua,rgb(12, 82, 82));
+            border-image-slice: 1 1 1 1;
+            border-image-width: 0.25rem;
+            box-shadow: 5px 5px 0 yellow;
+            --timing: linear(0,0.3,0.75,1);
+            animation: move 1s infinite var(--timing);
+        }
+        @keyframes move{
+            from{
+                --a: 0deg;
+            }to{
+                --a:360deg;
+            }
+        }
+        @property --a{
+            syntax: "<angle>";
+                inherits: true;
+                initial-value: 0deg;
+        }
+        .transicion{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition-property: width;
+            transition-duration: 2s;
+            transition-delay: 1s;
+            transition-timing-function: linear;
+        }
+        .transicion:hover{
+            width: 300px;
+        }
+        .transicion2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: width 2s, height 2s, transform 2s;
+            margin-top: 20px;
+        }
+        .transicion2:hover{
+            width: 300px;
+            transform: rotate(180deg);
+        }
+        .test1{
+            writing-mode: vertical-lr;
+        }
+    </style>
+</head>
+<body>
+    <h3>Border raidus</h3>
+    <div class="a1">Hola</div>
+    <div class="b1">Segundo</div>
+    <div class="c1">Tercero</div>
+    <h3>Párrafos</h3>
+    <div class="contenido">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean laoreet libero vel dolor eleifend cursus. Integer vel nisi suscipit, posuere lectus vel, hendrerit felis. Nullam tempor ipsum augue, id egestas diam molestie a. Nunc semper faucibus nibh vel cursus. Nullam pulvinar ante eget iaculis eleifend. Nulla quis nisi felis. Praesent venenatis elit sem, non porttitor urna tempor vitae. Duis eu nisi porta, feugiat ex eu, pharetra ex. </div>
+    <p class="a">Parrafo solido azul</p>
+    <p class="b">Verde punteado</p>
+    <p class="c">Violeta a rayas</p>
+    <p class="d">Mixto</p>
+    <h3>Min-content Max-content</h3>
+    <div class="caja minimo">Ejemplo<code> Mínimo contenido</code></div>
+    <div class="caja maximo">Ejemplo<code> Máximo contenido</code></div>
+    <h3>Desbordamiento de texto en div</h3>
+    <div class="desbordamiento">Desbordamiento de texto en div</code></div>
+    <h3>Bordes con gradientes</h3>
+    <div class="botones">
+        <button>Texto del boton</button>
+        <button class="relleno">Texto boton</button>
+    </div>
+    <h3>Animación</h3>
+    <button class="animacion">Texto</button>
+    <button class="animacion relleno2"></button>
+    <h3>Transiciones</h1>
+        <div class="transicion"></div>
+        <div class="transicion2"></div>
+        <p>Texto normal</p>
+        <p>A<span class="test1">l</span>e<span class="test1">j</span>a<span class="test1">a</span>n<span class="test1">d</span>r<span class="test1">o</span></p>
+</body>
+</html>
