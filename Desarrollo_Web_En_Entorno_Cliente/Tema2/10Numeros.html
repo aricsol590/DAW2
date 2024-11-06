@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <input type="number" id="numero" />
+      <button type="button" onclick="añadir()">Hola</button>
+    </form>
+    <script>
+      var numeros = [];
+
+      function añadir() {
+        if (numeros.length < 10) {
+            input=(Number(document.getElementById("numero").value));
+          numeros.push(input);
+        }
+        
+        if (numeros.length == 10) {
+            for (i = 0; i < 10; i++) {
+                console.log(numeros[i]);
+            }
+            numeros = numeros.toSorted();
+            console.log("--------------------------------------");
+            for (i = 0; i < 10; i++) {
+                console.log(numeros[i]);
+            }
+        }
+      }
+    </script>
+  </body>
+</html>
