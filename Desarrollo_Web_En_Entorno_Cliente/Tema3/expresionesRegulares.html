@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const nombres=["Pedro","Sara","Ana","Adrian"];
+        nombres.forEach((nombre)=>{
+            const primeraLetra=nombre.at(0).toLowerCase();
+            const ultimaLetra=nombre.at(-1).toLowerCase();
+            if ((primeraLetra == "p" || primeraLetra == "a") && (ultimaLetra == "o" || ultimaLetra == "n")){
+                console.log(`El nombre ${nombre} cumple con la expresión regular`);
+            }
+        })
+        //Usando expresiones regulares
+        // /^(p|a)*.+(o|n)$/i (La i significa que busque palabras con esa expresión regular independientemente de mayúscula o minúscula)
+
+        let expresionRegular=/^(p|a).+(o|n)$/i
+        nombres.forEach((nombre)=>{
+            if (expresionRegular.test(nombre)) {
+                console.log(`El nombre ${nombre} cumple con la expresión regular`);
+            }
+        });
+        let expr1=/hola/gi;
+        let cadena="Hola mundo";
+        console.log(cadena.match(expr1)); //Regresa un array con todas las coincidencias
+        console.log(expr1.test(cadena));
+        let expr2=/picha/;
+        let nuevaCadena=cadena.replace(expr2,"Juaky");
+        let becario = "antonio, moreno relinque";
+        let expr3=/,/;
+        let nombre=becario.split(expr3);
+        console.log(nombre);
+
+        //Todas las palabras que empiecen por mayuscula
+
+        let expr4=/\b[A-Z][a-z]*\b/g;
+        let cadena1="Hola Mundo que tal";
+        console.log(cadena.match(expr4));
+
+        //Correo electrónico
+        let correoreg=/^[A-Za-z0-9._-]+@[A-Za-z0-9.-_]+\.[A-Za-z]{2,6}$/
+        let email="joaquin@gmail.com";
+        console.log(correoreg.test(email));
+        let direccion="Jose Joaquin 4345245 el tuyo es 4545";
+        let exprnumericos = /\d+/;
+        let numeros=direccion.match(exprnumericos);
+        console.log(numeros);
+        const libros=[
+            {titulo:"JavaScript",npaginas:32,autor:"Juan Pérez",correo:"juan@pepe.es", codigo:"FG45"},
+            {titulo:"Programación",npaginas:12,autor:"María García",correo:"maria@pepe.es", codigo:"32SWD"},
+            {titulo:"Programación",npaginas:45, autor:"Pedro Gómez",correo:"pedro@pepe.es", codigo:"233GW"}
+        ];
+        let expr5 = /JavaScript/;
+        const librosJava=libros.filter(libro=>expr5.test(libro.titulo));
+        console.log(librosJava);
+        const autores_fallo_correo=libros.filter(libro=>correoreg.test(libro.correo));
+        const num=/\d+/;
+        const libroscodigo=libros.map(libro=>({
+            nomtitulo:libro.titulo,
+            estanteria:libro.codigo.match(num),
+            otro: libro.codigo.match(num)
+        }));
+        console.log(libroscodigo)
+    </script>
+</body>
+</html>

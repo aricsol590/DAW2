@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Asientos</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .asientos {
+            margin: 10px;
+            border: 1px solid black;
+            width: 100px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: lightgreen;
+            cursor: pointer;
+        }
+        .asientos.reservado {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre"><br>
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad"><br>
+    <label for="asiento">Número asiento (1-20):</label><br>
+    <input type="number" id="asiento"><br>
+    <input type="submit" value="Reservar" onclick="reservar()">
+
+    <div class="container" id="asientos-container"></div>
+
+    <script>
+        // Crear el array de asientos
+        const asientos = Array.from({ length: 20 }, (_, i) => ({
+            nombre: "",
+            edad: "",
+            asiento: i + 1,
+            reservado: false
+        }));
+
+        // Renderizar los asientos en la página
+        const container = document.getElementById("asientos-container");
+
+        function renderAsientos() {
+            container.innerHTML = ""; // Limpiar contenedor antes de renderizar
+            asientos.forEach((asiento) => {
+                const div = document.createElement("div");
+                div.className = "asientos" + (asiento.reservado ? " reservado" : "");
+                div.textContent = asiento.reservado
+                    ? `Asiento ${asiento.asiento}\n${asiento.nombre}, ${asiento.edad}`
+                    : `Asiento ${asiento.asiento}\nLibre`;
+                container.appendChild(div);
+            });
+        }
+
+        // Función para reservar un asiento
+        function reservar() {
+            const nombre = document.getElementById("nombre").value.trim();
+            const edad = parseInt(document.getElementById("edad").value);
+            const asientoNum = parseInt(document.getElementById("asiento").value);
+
+            if (!nombre || isNaN(edad) || isNaN(asientoNum) || asientoNum < 1 || asientoNum > 20) {
+                alert("Por favor, llena todos los campos correctamente.");
+                return;
+            }
+
+            const asiento = asientos.find(a => a.asiento === asientoNum);
+
+            if (asiento.reservado) {
+                alert(`El asiento ${asientoNum} ya está reservado por ${asiento.nombre}.`);
+            } else {
+                asiento.nombre = nombre;
+                asiento.edad = edad;
+                asiento.reservado = true;
+                alert(`Asiento ${asientoNum} reservado con éxito.`);
+            }
+
+            renderAsientos();
+        }
+
+        // Render inicial de los asientos
+        renderAsientos();
+    </script>
+</body>
+</html>

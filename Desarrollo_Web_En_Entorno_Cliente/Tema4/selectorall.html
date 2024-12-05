@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .parrafos{
+            font-size: 20px;
+            color: blue;
+            font-weight: bold;
+            transition: color 0.5s;
+        }
+    </style>
+    <p class="clase" id="1">Esto es un párrafo</p>
+    <p class="clase" id="2">Esto es un párrafo</p>
+    <p class="clase" id="3">Esto es un párrafo</p>
+    <p class="clase" id="4">Esto es un párrafo</p>
+    <p class="clase" id="5">Esto es un párrafo</p>
+    <button id="botones" type="button">Cambiar Todos</button>
+    <input type="number" id="numero" max="5" min="1">
+    <button id="boton">Cambia uno</button>
+    <script>
+        const parrafos=document.querySelectorAll(".clase");
+        const boton = document.querySelector("#boton");
+        const botones = document.querySelector("#botones");
+        botones.addEventListener("click", function(){
+            parrafos.forEach(elemento =>{
+                elemento.classList.toggle("parrafos");
+            })
+        });
+        boton.addEventListener("click", function(){
+            const numero = document.querySelector("#numero").value;
+            parrafos[numero -1].classList.toggle("parrafos");
+        });
+    </script>
+</body>
+</html>

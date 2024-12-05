@@ -1,0 +1,29 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: black;
+  box-shadow: 0 0 10px gray;
+}
+
+p {
+  color: #455;
+}
+
+h1 {
+  color: rgb(226, 109, 109);
+}
+
+.btn-primary {
+  background-color: #455;
+  border: none;
+  color: azure;
+  padding: 10px 20px;
+  text-align: center;
+  display: inline;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=estilos.css.map */

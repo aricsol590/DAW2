@@ -1,0 +1,19 @@
+//Estilos a aplicar
+
+@import 'variables';
+@import 'mixin';
+
+body {
+    font-family: $fuente;
+    background-color: $primario-color;
+    color: azure;
+}
+
+button {
+    background-color: $secundario-color;
+    @include borde-redondo(20px);
+    @include transicion(all,0.3s);
+    &:hover {
+        background-color: darken($secundario-color,35%);
+    }
+}

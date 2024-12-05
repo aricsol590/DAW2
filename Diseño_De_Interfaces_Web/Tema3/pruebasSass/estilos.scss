@@ -1,0 +1,31 @@
+//Variables
+$color-primario:#455;
+$color-secundario: rgb(226, 109, 109);
+$tipo_letra:'Arial, sans-serif';
+@mixin button-styles($color){
+    background-color: $color;
+    border: none;
+    color: azure;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 5px;
+}
+.container{
+max-width: 800px;
+margin: auto;
+padding: 20px;
+background-color: black;
+box-shadow: 0 0 10px gray;
+}
+p{
+    color: $color-primario
+}
+h1{
+    color: $color-secundario
+}
+.btn-primary{
+    @include button-styles($color-primario);
+}

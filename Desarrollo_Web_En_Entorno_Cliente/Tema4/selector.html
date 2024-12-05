@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ejemplo de QuerySelector</h1>
+    <p id="textoOriginal">Este es el original</p>
+    <form id="miFormulario">
+        <label for="nuevoTexto">Nuevo texto</label>
+        <input type="text" id="nuevoTexto" name="nuevoTexto">
+        <button type="button" id="cambiartexto">Cambiar el texto</button>
+    </form>
+    <script>
+        const boton = document.querySelector("#cambiartexto");
+        const textoOriginal = document.querySelector("#textoOriginal");
+        const inputTexto = document.querySelector("#nuevoTexto");
+
+        boton.addEventListener("click", function(){
+            textoOriginal.innerHTML = inputTexto.value;
+        });
+    </script>
+</body>
+</html>

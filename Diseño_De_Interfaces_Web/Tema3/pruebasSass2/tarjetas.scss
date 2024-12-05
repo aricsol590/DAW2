@@ -1,0 +1,5 @@
+@use './variables.scss' as v;
+
+.tarjeta{
+    border: 1px solid v.$secondary-color;
+}

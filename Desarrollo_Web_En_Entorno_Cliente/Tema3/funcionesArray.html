@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const personas=[
+            {nombre:"Juan",edad:25},
+            {nombre:"María",edad:30},
+            {nombre:"Pedro",edad:3}
+        ];
+        //Juan tiene 25 años, y le quedan 40 para jubilarse
+
+        let predicado=persona=>persona.nombre=="pepe";
+        let pepe=personas.filter(predicado);
+       // let jubilacion = 65-persona.edad;
+       /* var descripciones_personas=personas.map(persona=>{
+            return `${persona.nombre} + tiene + ${persona.edad} + le queda ${jubilacion} + año`
+        });*/
+        var segundo_daw=[
+            {nombre:'Fran',calificaciones:[7,8,9]},
+            {nombre:'Andrés',calificaciones:[4,5,6]},
+            {nombre:'Adrián',calificaciones:[7,8,5]},
+            {nombre:'Claudia',calificaciones:[9,9,9]},
+        ];
+
+        let suspensos=segundo_daw.filter(estudiante=>
+            estudiante.calificaciones.some(valor=>valor<=4)
+        );
+        console.log(suspensos)
+    </script>
+</body>
+</html>

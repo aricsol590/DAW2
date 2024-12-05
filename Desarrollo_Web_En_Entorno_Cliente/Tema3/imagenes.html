@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html{
+            background-color: darkslategray;
+        }
+        main{
+            display: grid;
+            grid-template-columns: repeat(4,200px);
+            grid-template-rows: repeat(3,200px);
+            max-width: 800px;
+            padding: 1rem;
+            margin: 0 auto;
+            grid-gap: 1rem;
+
+        }
+        img{
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        .a{
+            grid-row: 1/3;
+        }
+        .b{
+            grid-column: 3/5;
+        }
+        .c{
+            grid-row: 2/4;
+        }
+        .d{
+            grid-column: 3/5;
+        }
+    </style>
+    <main>
+        <div class="a">
+            <img src="https://picsum.photos/300/600/?random">
+        </div>
+        <div>
+            <img src="https://picsum.photos/600/300/?random">
+        </div>
+        <div class="b">
+            <img src="https://picsum.photos/200/200/?random">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/500/?random">
+        </div>
+        <div class="c">
+            <img src="https://picsum.photos/200/400/?random">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/250/?random">
+        </div>
+        <div>
+            <img src="https://picsum.photos/200/250/?random">
+        </div>
+        <div class="d">
+            <img src="https://picsum.photos/300/600/?random">
+        </div>
+    </main>
+    </html>
+</body>

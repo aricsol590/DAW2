@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dibujar Rombo</title>
+</head>
+<body>
+    <h2>Dibujar un rombo (solo bordes)</h2>
+    
+    <!-- Input para ingresar el número de filas -->
+    Filas: <input type="number" id="filas" min="1" value="5">
+    <button type="button" id="dibujar" onclick="dibujarRombo()">Dibujar</button>
+
+    <pre id="rombo"></pre> 
+
+    <script>
+        function dibujarRombo() {
+            // Obtener el valor de las filas desde el input
+            const filas = parseInt(document.getElementById('filas').value);
+
+            // Inicializamos una variable para almacenar el rombo como texto
+            let rombo = '';
+
+            // Dibujar la mitad superior del rombo
+            for (let i = 0; i < filas; i++) {
+                let linea = '';
+                
+                // Añadir los espacios antes de los asteriscos
+                for (let j = 0; j < filas - i - 1; j++) {
+                    linea += ' ';
+                }
+
+                // Añadir los asteriscos
+                if (i === 0) {
+                    linea += '*';  // Primer línea, solo un asterisco
+                } else {
+                    linea += '*';  // Primer asterisco en la línea
+                    for (let j = 0; j < 2 * i - 1; j++) {
+                        linea += ' ';  // Espacios en el medio
+                    }
+                    linea += '*';  // Último asterisco en la línea
+                }
+
+                rombo += linea + '\n';  // Añadir la línea con un salto de línea
+            }
+          
+            // Dibujar la mitad inferior del rombo
+            for (let i = filas - 2; i >= 0; i--) {
+                let linea = '';
+                
+                // Añadir los espacios antes de los asteriscos
+                for (let j = 0; j < filas - i - 1; j++) {
+                    linea += ' ';
+                }
+
+                // Añadir los asteriscos
+                if (i === 0) {
+                    linea += '*';  // Última línea, solo un asterisco
+                } else {
+                    linea += '*';  // Primer asterisco en la línea
+                    for (let j = 0; j < 2 * i - 1; j++) {
+                        linea += ' ';  // Espacios en el medio
+                    }
+                    linea += '*';  // Último asterisco en la línea
+                }
+
+                rombo += linea + '\n';  // Añadir la línea con un salto de línea
+            }
+
+            // Mostrar el rombo en el elemento <pre> en lugar de la consola
+            document.getElementById('rombo').textContent = rombo;
+        }
+    </script>
+</body>
+</html>

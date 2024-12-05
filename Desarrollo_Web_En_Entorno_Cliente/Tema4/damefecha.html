@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="aqui"></p>
+    <button id="boton">Mostrar fecha</button>
+    <script>
+        const fecha = new Date();
+        const parrafo = document.getElementById('aqui');
+        
+        boton.addEventListener('click',function(){
+            año = fecha.getFullYear();
+        mes = fecha.getMonth() + 1;
+        dia = fecha.getDate();
+        parrafo.innerHTML = dia + " del "+mes + " del "+ año;
+        })
+    </script>
+</body>
+</html>

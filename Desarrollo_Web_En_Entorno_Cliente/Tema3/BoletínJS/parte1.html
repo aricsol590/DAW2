@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 1</title>
+</head>
+<body>
+    
+    <script>
+        let numeros = [3, 45, 6, 23, 11, 52];
+        let index = 0;
+
+    // Ejercicio1
+        function sumarElementos(numeros){
+            for (let i = 0; i < numeros.length; i++) {
+            index += parseInt(numeros[i]);
+        }
+        console.log(index);
+        return index;
+        }
+        
+    //Ejercicio2
+    
+    function numeroMayor(numeros){
+        index=Number.MIN_VALUE;
+        
+        for (let i = 0; i < numeros.length; i++) {
+            if (numeros[i] > index) {
+                index = numeros[i];
+            }    
+        }
+        console.log(index)
+        return index;
+    }
+    
+    //Ejercicio3
+
+        function filtrarPares(numeros){
+            index = 0;
+        for (let i = 0; i < numeros.length; i++) {
+                if (numeros[i] % 2 == 0 && i< numeros.length - 1) {
+                    index += numeros[i] + ",";
+                }else if(numeros[i] % 2 == 0 && i == numeros.length - 1){
+                    index += numeros[i];
+                } 
+            }
+            console.log(index);
+            return index;
+        }
+    
+    //Ejercicio4
+            
+        function filtrarPrimos(numeros){
+            primos = numeros.filter(num => {
+            for( i = 2 ; i <= num; i++){
+                if (i == num) {
+                return num;
+            }
+                else if(num % i == 0){
+                    break;
+            }
+        }
+        });
+        console.log(primos);
+        return primos;
+        }
+    
+    //Ejercicio5
+
+        function ordenarNumeros(numeros){
+            index = numeros.sort((a,b)=> a>b);
+        console.log(numeros);
+        console.log(index);
+        return index;
+        }
+
+    //Ejercicio6
+
+        function ordenarNumerosSinModificar(numeros){
+            index = numeros.slice().sort((a,b)=> b-a);
+        console.log(index)
+        }
+
+    //Ejercicio7 TODO
+        
+        function ordenarDesdePosicion(numeros,posicion){
+            parte1=[];
+            parte2=[];
+            completo = [];
+            for(i = 0;i<numeros.length;i++){
+                if (i<posición) {
+                    parte1[i] = numeros[i];
+                }else{
+                    parte2[i] = numeros[i];
+                }
+            }
+            parte2 = parte2.sort((a,b)=>a-b);
+           // completo = parte1 + parte2;
+            return parte2;
+        }
+    console.log(ordenarDesdePosicion(),3);
+    </script>
+</body>
+</html>

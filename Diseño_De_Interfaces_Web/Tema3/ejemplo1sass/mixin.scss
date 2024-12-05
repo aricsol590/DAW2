@@ -1,0 +1,15 @@
+@mixin borde-redondo($radio){
+
+    border-radius: $radio;
+    -webkit-border-radius:$radio;
+    -moz-border-radius:$radio;
+    -ms-border-radius:$radio;
+}
+
+@mixin transicion($propiedad, $duracion){
+
+    -webkit-transition: $propiedad $duracion;
+    -moz-transition: $propiedad $duracion;
+    -ms-transition: $propiedad $duracion;
+    transition: $propiedad $duracion;
+}
