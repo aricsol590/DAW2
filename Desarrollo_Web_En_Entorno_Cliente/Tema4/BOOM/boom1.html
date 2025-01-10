@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="textoacopiar" cols="50" rows="4">Texto</textarea>
+    <button id="copiar" onclick="copiardelportapapeles()">Copiar al Portapapeles</button>
+    <p id="copiado"></p>
+    <script>
+        let texto = document.getElementById("textoacopiar");
+            navigator.clipboard.writeText(texto).then({
+                function(){
+                    console.log("Texto copiado al portapapeles");
+                }
+            }).catch(function(err){
+                console.error("ha habido un error al copiar", err)
+            });
+    
+        window.onresize=cambioTamaño;
+        //Función que se ejecuta cuando se redimensiona la ventana
+        function cambioTamaño(){
+            alert("Tamaño cambiado");
+        }
+        var miventana = window.open("","","width=100,height=100");
+        function objetoVentana(){
+            miventana.resizeTo(300,300);
+            miventana.scroll.moveTo(500,100);
+        }
+        window.close();
+        /*
+        navigator.clipboard
+        manejo del portapapeles
+        */
+       console.log("Ancho: "+screen.width+" Alto: "+screen.height);
+       if (screen.width<1024) {
+        document.write("Pantalla pequeña")
+       }else if (screen.width<1300){
+        document.write("Pantalla mediana");
+       }else{
+        document.write("Pantalla grande");
+       }
+    </script>
+</body>
+</html>

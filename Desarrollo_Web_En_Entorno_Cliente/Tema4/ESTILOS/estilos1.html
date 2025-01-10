@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .luzalta{
+            color:aliceblue;
+            background-color: green;
+        }
+    </style>
+    <div id="texto">La frase del día: "No fui ni seré policía</div>
+    <button id="estilo">Aplicar Estilo</button>
+    <button id="clase">Cambiar la clase</button>
+    <script>
+        const texto = document.getElementById("texto");
+        const botonEstilo = document.getElementById("estilo");
+        const botonClase = document.getElementById("clase");
+        estilo.addEventListener("click", function(){
+
+            texto.style.color = "blue";
+            texto.style.fontSize = "25px";
+            texto.style.border="1px solid black";
+            const estilo_actual = getComputedStyle(texto);
+            console.log(estilo_actual);
+        });
+        clase.addEventListener("click", function(){
+            texto.classList.toggle("luzalta");
+        });
+    </script>
+</body>
+</html>

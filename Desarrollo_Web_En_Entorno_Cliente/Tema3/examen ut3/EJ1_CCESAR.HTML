@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cifrado César</title>
+</head>
+<body>
+    <h1>Cifrado César en JavaScript</h1>
+    <label for="texto">Mensaje</label>
+    <input type="text" id="texto"><br><br>
+    <label for="numero">Desplazamiento</label>
+    <input type="number" id="numero"><br><br>
+    <button id="cifrar">Cifrar</button>
+    <button id="descifrar">Descifrar</button>
+    <h2>Resultado: </h2>
+    <p id="resultado"><span></span></p>
+    <script>
+        const abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k","l", "m", "n","ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        botonC = document.getElementById("cifrar");
+        botonD = document.getElementById("descifrar");
+        let parrafo = document.getElementById("resultado");
+        botonC.addEventListener("click", cifrar);
+        botonD.addEventListener("click", descifrar);
+        function cifrar() {
+            let mensajeFinal = "";
+            const mensaje = document.getElementById("texto").value;
+            const desplazamiento = parseInt(document.getElementById("numero").value);
+            let mensajeArr = mensaje.split("");
+            for (let i = 0; i < mensajeArr.length; i++) {
+                var letra = abecedario.indexOf(mensajeArr[i]);
+                let resultado = letra + desplazamiento;
+                if (resultado > abecedario.length -1) {
+                    resultado = resultado - abecedario.length;
+                }
+                console.log(abecedario[resultado]);
+                mensajeFinal += abecedario[resultado]
+            };
+            parrafo.innerHTML=mensajeFinal;
+        }
+        function descifrar() {
+            let mensajeFinal = "";
+            const mensaje = document.getElementById("texto").value;
+            const desplazamiento = parseInt(document.getElementById("numero").value);
+            let mensajeArr = mensaje.split("");
+            for (let i = 0; i < mensajeArr.length; i++) {
+                var letra = abecedario.indexOf(mensajeArr[i]);
+                let resultado = letra - desplazamiento;
+                if (resultado < 0) {
+                    resultado = abecedario.length - resultado;
+                }
+                mensajeFinal += abecedario[resultado-2]
+            };
+            parrafo.innerHTML=mensajeFinal;
+        }
+    </script>
+</body>
+</html>

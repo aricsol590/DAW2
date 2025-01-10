@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let map = new Map([
+            [1, 100],
+            [2, 100],
+            [3, 100],
+            [4, 100],
+            [5, 100],
+            [6, 100],
+            [7, 100],
+        ]);
+        let suma = 0;
+        map.forEach((valor, clave) =>{
+            suma += valor;
+        });
+        console.log(suma);
+
+        map.set(8, 100);
+        console.log(map);
+
+        console.log(map.has(8));
+        console.log(map.has(82));
+        map.delete(5);
+        console.log(map);
+
+        //Suma de los valores de map usando funcion flecha
+        
+    </script>
+</body>
+</html>

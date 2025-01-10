@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lista">
+        <li>Primero</li>
+        <li>Segundo</li>
+        <li>Tercero</li>
+        <li>Cuarto</li>
+    </ul>
+    <script>
+        /*
+        PONER UN ÚNICO EVENTO AL ELEMENTO PADRE QUE ENCIERRA OTROS ELEMENTOS
+        POR TANTO, EN VEZ DE PONER 4 EVENTOS EN UNA LISTA CON 4 ELEMENTOS, PONEMOS SOLO UNO
+        */
+       const lsta = document.getElementById("lista")
+        //Añadimos un listener al elemento padre
+        lista.addEventListener("click",function(evento){
+            if(evento.target && evento.target.matches("li")){
+                console.log("Item clickado " + evento.target.textContent);
+            }
+        });
+    </script>
+</html>
+</body>

@@ -1,0 +1,47 @@
+body{
+    background-color: darkblue;
+}
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    max-width: 800px;
+    height: 300px;
+    margin: auto;
+}
+div{
+    border: 1px solid black;
+    min-width: 35px;
+    min-height: 50px;
+}
+.pri{
+    background-color: green;
+    grid-row: 1/4;
+}
+.seg{
+    background-color: green;
+    grid-column: 2/4;
+}
+.ter{
+    background-color: red;
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+.sex{
+    grid-column: 4/5;
+    grid-row: 2/4;
+    background-color: green;
+}
+.cua{
+background-color: orange;
+}
+.qui{
+    background-color: red;
+}
+.oct{
+    background-color: orange;
+}
+.sep{
+    background-color: red;
+}

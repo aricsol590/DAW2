@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .picado{
+            background-color: orange;
+            color: blue;
+        }
+    </style>
+    <button id="boton">Haz click</button>
+    <script>
+        const boton = document.getElementById("boton");
+        boton.addEventListener("click", function(){
+            boton.style.padding="5px";
+            boton.style.borderRadius="10px";
+            boton.classList.add("picado");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo de eventos</title>
+</head>
+<body>
+    <div id="exterior" onclick="avisar()">
+        <div id="texto">Esto está dentro del div exterior</div>
+        <button id="boton">Boton en div exterior</button>
+    </div>
+    <script>
+        function avisar() {
+            console.log("Se ha clicado en el div exterior");
+            console.log("Provocado por: "+event.target.id);
+            console.log("Origen o donde está definido: " + event.currentTarget.id);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manejo de eventos</title>
+  </head>
+  <input>
+    <!--
+        DOS BOTONES.
+        EL PRIMERO MUESTRA LA DIRECCIÓN URL
+        EL SEGUNDO TE LLEVA A LA SUPERCOPA
+        SABER SI ESTAN O NO ACTIVADAS LAS COOKIES 
+        IDIOMA DEL NAVEGADOR
+    -->
+    <button id="bt1">Mostrar URL</button>
+    <hr />
+    <p id="url"></p>
+    <hr />
+    <button id="bt2">Nos lleva a la supercopa</button>
+    <hr>
+    <p id="idioma"></p>
+    <p id="cookies"></p>
+    <hr>
+    <h2>Pedir una web y acceder a ella</h2>
+    <input type="text" id="url2">
+    <input type="button" id="btn" value="Enviar a URL">
+    <script>
+      document.getElementById("bt1").addEventListener("click", function () {
+        document.getElementById("url").innerText = window.location.href;
+      });
+      document.getElementById("bt2").addEventListener("click", function () {
+        //window.location.href = 'https://www.marca.com/futbol/supercopa-espana/2025/01/08/supercopa-mil-historias-territorio-saudi.html';
+        window.open(
+          "https://www.marca.com/futbol/supercopa-espana/2025/01/08/supercopa-mil-historias-territorio-saudi.html"
+        );
+      });
+      function idioma(){
+        document.getElementById("idioma").innerText = "Idioma del navegador"+navigator.language;
+      }
+      function cookies(){
+        document.getElementById("cookies").innerText = "Cookies habilitadas: "+navigator.cookieEnabled;
+      }
+      
+      document.getElementById("btn").addEventListener("click",function(){
+        window.open(document.getElementById("url2").value);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="contenedor">
+        <button class="borrar">Borrar</button>
+        <button class="borrar">Eliminar</button>
+    </div>
+    <article>
+        <div id="div1">Esto es div1
+            <div id="div2">Esto es div2
+                <div id="div3">Esto es div3</div>
+            </div>
+        </div>
+    </article>
+    <script>
+        /*
+        lOS MÉTODOS MAS USUALES PARA LA DELEGACIÓN
+        SON MATCHES Y CLOSEST
+        MATCHES COMPRUEBA SI COINCIDE CON EL ELEMENTO
+        Y CLOSEST DEVUELVE EL PADRE MAS CERCANO QUE COINCIDA CON EL SELECTOR
+        */
+        const contenedor = document.getElementById("contenedor");
+        contenedor.addEventListener("click",function(evento){
+        
+            const boton = evento.target.closest(".borrar"); 
+            if (boton) {
+                console.log("Clickeado el boton");
+            }
+       })
+       const elemento=document.getElementById("div3");
+       console.log(elemento.closest("#div2"));
+       console.log(elemento.closest("div div"));
+       console.log(elemento.closest("article > div"));
+       console.log(elemento.closest(":not(div)"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        li{
+            background-color: aquamarine;
+            width: 500px;
+        }
+        .luzalta{
+            background-color: red;
+            width: 500px;
+        }
+    </style>
+    <ul>
+        <li>Primero</li>
+        <li class="luzalta">Segundo</li>
+        <li>Tercero</li>
+        <li>Cuarto</li>
+        <li class="luzalta">Quinto</li>
+    </ul>
+    <script>
+        const lista = document.querySelectorAll('li');
+        for(let elemento of lista){
+            elemento.classList.toggle('luzalta');
+        }
+    </script>
+</body>
+</html>

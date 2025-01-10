@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="boton">Añadir Elemento</button>
+    <ul id="lista">
+        <li>Primera Original</li>
+    </ul>
+    <script>
+        const boton=document.getElementById("boton");
+        const lista=document.getElementById("lista");
+        boton.addEventListener("click", function(){
+            const nuevo=document.createElement("li");
+            nuevo.textContent="Nuevo Elemento";
+            lista.appendChild(nuevo);
+        });
+        lista.addEventListener("click", function(evento){
+            if (evento.target && evento.target.matches("li")){
+             
+                console.log("Elemento: " + evento.target.textContent);
+            }
+        });
+    </script>
+</body>
+</html>

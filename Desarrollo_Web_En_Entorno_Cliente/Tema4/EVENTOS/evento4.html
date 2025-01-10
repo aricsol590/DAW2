@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos de drag and drop</title>
+    <style>
+        #caja {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            color: aliceblue;
+            text-align: center;
+            line-height: 100px;
+            cursor: move;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eventos de drag and drop</h1>
+    <div id="caja" draggable="true">Arrástrame</div>
+    <p>Presiona una tecla</p>
+    <script>
+        document.getElementById("caja").addEventListener("dragstart", function(event) {
+            console.log("Estoy arrastrando...");
+        });
+        document.addEventListener("dragover",function(event) {
+            event.preventDefault();
+        });
+        document.addEventListener('drop',function(event){
+            event.preventDefault();
+            const elemento = document.getElementById('caja');
+            console.log(event.clientX);
+            console.log(event.clientY);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+//DEFINIR UN MAPA DE COLORES
+
+$colores:(
+    color1: lightblue,
+    color2: lightgreen,
+    color3: lightyellow,
+    color4: lightpink,
+    color5: lightgray,
+    color6: lightcoral,
+);
+
+//FUNCION PARA OBTENER LOS COLORES
+
+     @function obtener_color($color) {
+        @return map-get($colores, $color);
+    }
+//FUNCION QUE INVIERTA LOS COLORES
+
+    @function invertir_color($color) {
+        $color_rgb: rgb(obtener_color($color));
+        @return invert(#{$color_rgb});
+    }
+//USARLO PARA BODY, H1, .BOTON-PELIGRO:HOVER
+
+    body{
+        background-color: obtener_color(color3);
+        color: invertir_color(color3);
+    }

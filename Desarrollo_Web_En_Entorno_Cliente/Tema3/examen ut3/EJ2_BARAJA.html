@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de la Baraja Española: Carta al Azar</title>
+</head>
+<body>
+    <h1>Juego de la Baraja Española: Carta al Azar</h1>
+    <button onclick="sacarCarta()">Sacar Carta</button><br>
+    <img id="carta">
+    <P id="vacio"></P>
+    <script>
+        let numeros = [1,2,3,4,5,6,7,10,11,12];
+        let palos = ["oros", "copas", "bastos" ,"espadas"];
+        let baraja = [];
+        for (let i = 0; i < palos.length; i++) {
+            for (let j = 0; j < numeros.length; j++) {
+                baraja.push({numero: numeros[j], palo: palos[i]});
+        }
+    };
+            console.log(baraja);
+        function sacarCarta(){
+            baraja.sort(()=>Math.random()-0.5);
+            if(baraja.length == 0){
+                document.getElementById("vacio").innerHTML= "La baraja está vacía";
+                document.getElementById("carta").src="./imagenes/fournier.jpg";
+                document.getElementById("carta").style.width="300px";
+                return;
+            }
+            carta = baraja.pop();
+            document.getElementById("carta").src="./imagenes/"+carta.numero+carta.palo+".png";
+        };
+        
+    </script>
+</body>
+</html>

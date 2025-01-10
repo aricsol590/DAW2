@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numeros = [3,45,6,23,11,52];
+
+        //Ejercicio1
+
+        let suma = 0
+        numeros.foreach(element =>{
+            suma += element;
+        });
+        console.log("la suma es: " + suma);
+        //Ejercicio2
+
+        let maximo = Number.MIN_VALUE;
+
+        numeros.foreach(element =>{
+            if(element > maximo){
+                maximo = element;
+            }
+        });
+        console.log("maximo es: " + maximo);
+        //Ejercicio3
+        console.log("pares")
+        numeros.foreach(element =>{
+            if(element%2 == 0){
+                console.log(element);
+            }
+        });
+
+        //Ejercicio4
+        let primos = [];
+        numeros.foreach(element =>{
+            for (let i = 0; i < element/2 ; i++) {
+                if(i == element /2){
+                    primos.push(element);
+                }
+        }
+        });
+    </script>
+</body>
+</html>

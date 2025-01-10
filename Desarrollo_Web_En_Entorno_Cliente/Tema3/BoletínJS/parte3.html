@@ -8,41 +8,182 @@
 <body>
     <script>
         const alumnos = [
-        {
-          nombre: "Juaky Moreno",
-          matricula: "A001",
-          beca: true,
-          calificaciones: {
-            filosofia: [8, 7, 9],
-            matematicas: [7, 8, 7],
-            fisica: [9, 6, 8],
-            quimica: [6, 7, 7],
-          },
-        },
-        {
-          nombre: "Mari Guapa",
-          matricula: "A002",
-          beca: false,
-          calificaciones: {
-            filosofia: [6, 5, 7],
-            matematicas: [8, 9, 8],
-            fisica: [7, 8, 8],
-            quimica: [9, 8, 7],
-          },
-        },
-        {
-          nombre: "Carlos Vives",
-          matricula: "A003",
-          beca: true,
-          calificaciones: {
-            filosofia: [9, 8, 9],
-            matematicas: [6, 7, 7],
-            fisica: [8, 9, 8],
-            quimica: [7, 6, 7],
-          },
-        },
-      ];
+            {
+                nombre: "Juaky Moreno",
+                matricula: "A001",
+                beca: true,
+                calificaciones: {
+                    filosofia: [8, 7, 9],
+                    matematicas: [7, 8, 7],
+                    fisica: [9, 6, 8],
+                    quimica: [6, 7, 7],
+                },
+            },
+            {
+                nombre: "Mari Guapa",
+                matricula: "A002",
+                beca: false,
+                calificaciones: {
+                    filosofia: [6, 5, 7],
+                    matematicas: [8, 9, 8],
+                    fisica: [7, 8, 8],
+                    quimica: [9, 8, 7],
+                },
+            },
+            {
+                nombre: "Carlos Vives",
+                matricula: "A003",
+                beca: true,
+                calificaciones: {
+                    filosofia: [9, 8, 9],
+                    matematicas: [6, 7, 7],
+                    fisica: [8, 9, 8],
+                    quimica: [7, 6, 7],
+                },
+            },
+        ];
 
+        function calificacionesTrimestre(asignatura) {
+            const total = asignatura.reduce((acumulador, nota) => acumulador + nota, 0);
+            return total / asignatura.length;
+        }
+
+        function calcularPromedioAsignaturas(calificaciones) {
+            const asignaturas = Object.keys(calificaciones);
+            const promedios = asignaturas.map(asignatura => calificacionesTrimestre(calificaciones[asignatura]));
+            return promedios.reduce((acumulador, promedio) => acumulador + promedio, 0) / promedios.length;
+        }
+
+        const calificacionesJuaky = calcularPromedioAsignaturas(alumnos[0].calificaciones);
+        console.log(`Promedio de Juaky: ${calificacionesJuaky}`);
+
+        // Ejercicio 14: Filtrar Alumnas/os con Beca
+        function filtrarAlumnosConBeca(array) {
+            return array.filter(alumno => alumno.beca);
+        }
+
+        const alumnosConBeca = filtrarAlumnosConBeca(alumnos);
+        console.log("Alumnos con beca:", alumnosConBeca);
+
+        // Ejercicio 15: Ordenar Alumnos por Promedio de Calificaciones
+        function ordenarAlumnosPorPromedio(array) {
+            return array.sort((a, b) =>
+                calcularPromedioAsignaturas(b.calificaciones) - calcularPromedioAsignaturas(a.calificaciones)
+            );
+        }
+
+        const alumnosOrdenados = ordenarAlumnosPorPromedio(alumnos);
+        console.log(alumnosOrdenados);
+
+        // Ejercicio 16: Alumnos por debajo de la media
+
+        function calcularPromedioGeneral(array) {
+            const promedios = array.map(alumno => calcularPromedioAsignaturas(alumno.calificaciones));
+            return promedios.reduce((acumulador, promedio) => acumulador + promedio, 0) / promedios.length;
+        }
+
+        function alumnosPorDebajoDeLaMedia(array) {
+            const promedioGeneral = calcularPromedioGeneral(array);
+            return array.filter(alumno => calcularPromedioAsignaturas(alumno.calificaciones) < promedioGeneral);
+        }
+
+        const alumnosDebajoDeLaMedia = alumnosPorDebajoDeLaMedia(alumnos);
+        console.log(alumnosDebajoDeLaMedia);
+
+        const numeross = [3, 45, 6, 23, 11, 52, 23, 23, 45, 11, 11];
+
+        // Ejercicio 17: Calcula el número de múltiplos de 5. 
+
+        function contarMultiplosDeCinco(array) {
+            return array.filter(numero => numero % 5 === 0).length;
+        }
+
+        const cantidadMultiplosDeCinco = contarMultiplosDeCinco(numeross);
+        console.log(cantidadMultiplosDeCinco);
+
+        // Ejercicio 18: Calcular la Mediana.
+
+        function calcularMediana(array) {
+            // Ordenamos los números de menor a mayor
+
+            const numerosOrdenados = array.slice().sort((a, b) => a - b);
+
+            // Comprobamos si la cantidad de números es par o impar
+
+            const longitud = numerosOrdenados.length;
+            const esImpar = longitud % 2 !== 0;
+
+            if (esImpar) {
+                // Sí es impar, la mediana es el número de en medio
+
+                return numerosOrdenados[Math.floor(longitud / 2)];
+
+            } else {
+
+                // Sí es par, la mediana es el promedio de los dos números del medio
+
+                const medio1 = numerosOrdenados[longitud / 2 - 1];
+                const medio2 = numerosOrdenados[longitud / 2];
+                return (medio1 + medio2) / 2;
+            }
+        }
+
+        const mediana = calcularMediana(numeros);
+        console.log(`La mediana es: ${mediana}`);
+
+        // Ejercicio 19: Calcular la Moda.
+
+        function calcularModa(array) {
+            const conteo = {};  // Objeto para almacenar la frecuencia de cada número
+            let maxFrecuencia = 0;  // La frecuencia máxima encontrada
+            let modas = [];  // Array para almacenar las modas
+
+            // Contar cuántas veces aparece cada número
+
+            array.forEach(numero => {
+                conteo[numero] = (conteo[numero] || 0) + 1;
+                if (conteo[numero] > maxFrecuencia) {
+                    maxFrecuencia = conteo[numero];
+                }
+            });
+
+            // Identificar los números que tienen la mayor cantidad de repeticiones
+
+            for (let numero in conteo) {
+                if (conteo[numero] === maxFrecuencia) {
+                    modas.push(Number(numero));
+                }
+            }
+
+            return modas;
+        }
+
+        const moda = calcularModa(numeross);
+        console.log(`La moda es: ${moda}`);
+
+        // Ejercicio 20: Calcular la Desviación Estándar
+
+
+        function calcularDesviacionEstandar(array) {
+            const n = array.length;
+
+            // Paso 1: Calcular la media
+            const media = array.reduce((acumulador, valor) => acumulador + valor, 0) / n;
+
+            // Paso 2: Calcular la suma de los cuadrados de las diferencias respecto a la media
+            const sumatoriaCuadrados = array.reduce((acumulador, valor) => acumulador + Math.pow(valor - media, 2), 0);
+
+            // Paso 3: Calcular la varianza (promedio de los cuadrados)
+            const varianza = sumatoriaCuadrados / n;
+
+            // Paso 4: La desviación estándar es la raíz cuadrada de la varianza
+            const desviacionEstandar = Math.sqrt(varianza);
+
+            return desviacionEstandar;
+        }
+
+        const desviacion = calcularDesviacionEstandar(numeross);
+        console.log(`La desviación estándar es: ${desviacion.toFixed(2)}`);
     </script>
 </body>
 </html>

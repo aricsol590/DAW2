@@ -1,0 +1,24 @@
+//MAPAS
+$colores:(
+    primario:blue,
+    secundario:green,
+    peligro:darkred,
+    claro:lightgray,
+    oscuro:darkblue,
+);
+
+.button{
+    background-color: map-get($colores , secundario );
+    color: map-get($colores , claro);
+}
+$color-base:rgb(149,118,118);
+.alert{
+    background-color: saturate($color-base, 20%);
+    color: adjust-color($color-base, 20%);
+}
+.parrafo{
+    background-color: hsla(200,70%,50%,0.8);
+    &:hover{
+        background-color: transparentize($color-base,0.3)
+    }
+}

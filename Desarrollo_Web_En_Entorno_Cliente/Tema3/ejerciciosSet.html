@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ej1 Crea un Set con los números del 1 al 5, y luego usa .size() para obtener el número de elementos del Set.
+        
+        let numeros = new Set([1, 2, 3, 4, 5]);
+        console.log(numeros.size);
+
+        //Ej2 añade el numero 6 
+        
+        numeros.add(6);
+        console.log(numeros);
+
+        //Ej3 
+        
+        console.log("tiene 3?"+numeros.has(3))
+
+        //Ej4 
+        
+        numeros.delete(4);
+        console.log(numeros);
+
+        //Ej5
+        
+        numeros.clear();
+        console.log(numeros);
+
+        //Ej6
+
+        let array = [1, 2, 2, 3, 3, 4];
+        let setArray = new Set(array);
+        console.log(array);
+        console.log(setArray);
+
+        //Ej7
+
+        setArray.add("John")
+        console.log(setArray.has("John"));
+
+        //Ej8
+
+        let set2 = new Set([5,6,7]);
+        set2.delete(10)
+        console.log(set2);
+
+        //Ej8
+
+        let array2 = [1,1,2,2,3,3,4,4,5,5];
+        let setArray2 = new Set(array2);    
+        console.log(setArray2.size);
+
+        //Ej9
+
+        let set3 = new Set([10,21,30,35,2,3,12,26,19]);
+        set3.forEach(element => {
+            if(element%2==0){
+                console.log(element);
+            }
+        });
+    </script>
+</body>
+</html>

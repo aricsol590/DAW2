@@ -40,7 +40,6 @@
     <div class="container" id="asientos-container"></div>
 
     <script>
-        // Crear el array de asientos
         const asientos = Array.from({ length: 20 }, (_, i) => ({
             nombre: "",
             edad: "",
@@ -48,22 +47,18 @@
             reservado: false
         }));
 
-        // Renderizar los asientos en la página
         const container = document.getElementById("asientos-container");
 
-        function renderAsientos() {
-            container.innerHTML = ""; // Limpiar contenedor antes de renderizar
+        function Asientos() {
+            container.innerHTML = "";
             asientos.forEach((asiento) => {
                 const div = document.createElement("div");
                 div.className = "asientos" + (asiento.reservado ? " reservado" : "");
-                div.textContent = asiento.reservado
-                    ? `Asiento ${asiento.asiento}\n${asiento.nombre}, ${asiento.edad}`
-                    : `Asiento ${asiento.asiento}\nLibre`;
+                div.textContent = asiento.reservado ? `Asiento ${asiento.asiento}\n${asiento.nombre}, ${asiento.edad}` : `Asiento ${asiento.asiento}\nLibre`;
                 container.appendChild(div);
             });
         }
 
-        // Función para reservar un asiento
         function reservar() {
             const nombre = document.getElementById("nombre").value.trim();
             const edad = parseInt(document.getElementById("edad").value);
@@ -85,11 +80,10 @@
                 alert(`Asiento ${asientoNum} reservado con éxito.`);
             }
 
-            renderAsientos();
+            Asientos();
         }
 
-        // Render inicial de los asientos
-        renderAsientos();
+        Asientos();
     </script>
 </body>
 </html>
