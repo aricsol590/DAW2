@@ -1,0 +1,76 @@
+/*Variables para el fondo de una web*/
+
+@fondo_color: violet;
+@primary-color:blue;
+@fondoborde:yellow;
+@colorletra:brown;
+
+div{
+    background-color: @fondo_color;
+}
+header{
+    background-color: @fondo_color;
+    color: @primary-color;
+    border-bottom: 2px solid darken(@primary-color, 10%);
+}
+
+/*Mixin*/
+
+.bordes-redondos(@radio){
+    border-radius: @radio;
+}
+button{
+    .bordes-redondos(10px);
+    background-color: @fondoborde;
+    color: @colorletra;
+}
+@color: violet;
+@size:10px;
+.text-style(@color,@size){
+    color: @color;
+    font-size: @size;
+}
+p{
+    .text-style(blue, @size);
+}
+.sombra(@x,@y,@blur,@spread,@color){
+    box-shadow: @x @y @blur @spread @color;
+}
+div{
+    .sombra(5px,5px,15px,2px,black);
+}
+
+/*Para los h1 definir un estilo de tamaño, ancho de la fuente
+y un line-heigth*/
+
+.estilos_h1(@tamanio,@ancho,@linea){
+    font-size: @tamanio;
+    font-weight: @ancho;
+    line-height: @linea;
+}
+.tamano(@ancho,@alto){
+    width: @ancho;
+    height: @alto;
+}
+h1{
+    .tamano(100px+20px,200px-50px);
+    .estilos_h1(10px,bold,1.5);
+}
+div{
+    .sombra(5px,5px,15px,2px,black);
+    .tamano(100px+20px,200px-50px);
+    .estilos_h1(10px,bold,1.5);
+}
+@primario:violet;
+@secundario:blue;
+@terciario:brown;
+/*Mixin que prototipe un footer*/
+.prototipo(@fondo,@color_letra,@borde_top){
+    background-color: @fondo;
+    color: @color_letra;
+    border-top: 2px solid @borde_top;
+
+}
+footer{
+    .prototipo(@primario,@secundario,@terciario);
+}

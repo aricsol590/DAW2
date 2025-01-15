@@ -1,7 +1,7 @@
 <?php
 include 'conexion.php';
 
-// Verificar el id esta en ña url
+// Verificar si el id está en la URL
 if (!isset($_GET['id'])) {
     header('Location: listado.php');
     exit;
@@ -10,11 +10,8 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 // Obtener los datos actuales del producto
-$sql = "SELECT * FROM productos WHERE id = ?";
-$stmt = $conexion->prepare($sql);
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
+$sql = "SELECT * FROM productos WHERE id = $id";
+$result = $conexion->query($sql);
 $producto = $result->fetch_assoc();
 
 // Si no se encuentra el producto, redirigir
@@ -24,11 +21,8 @@ if (!$producto) {
 }
 
 // Obtener el stock del producto desde la tabla stocks
-$sql_stock = "SELECT unidades FROM stocks WHERE producto = ?";
-$stmt_stock = $conexion->prepare($sql_stock);
-$stmt_stock->bind_param("i", $id);
-$stmt_stock->execute();
-$result_stock = $stmt_stock->get_result();
+$sql_stock = "SELECT unidades FROM stocks WHERE producto = $id";
+$result_stock = $conexion->query($sql_stock);
 $stock_data = $result_stock->fetch_assoc();
 $stock_actual = $stock_data['unidades'] ?? 0;
 
@@ -46,35 +40,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         // Actualizar los datos del producto
-        $sql = "UPDATE productos SET nombre = ?, pvp = ?, familia = ? WHERE id = ?";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("sdii", $nombre, $precio, $familia, $id);
-        $stmt->execute();
+        $sql_update_producto = "UPDATE productos SET nombre = '$nombre', pvp = '$precio', familia = '$familia' WHERE id = $id";
+        if (!$conexion->query($sql_update_producto)) {
+            throw new Exception("Error al actualizar el producto: " . $conexion->error);
+        }
 
         // Actualizar el stock en la tabla stocks
-        $sql_update_stock = "UPDATE stocks SET unidades = ? WHERE producto = ?";
-        $stmt_update_stock = $conexion->prepare($sql_update_stock);
-        $stmt_update_stock->bind_param("ii", $stock, $id);
-        $stmt_update_stock->execute();
+        $sql_update_stock = "UPDATE stocks SET unidades = '$stock' WHERE producto = $id";
+        if (!$conexion->query($sql_update_stock)) {
+            throw new Exception("Error al actualizar el stock: " . $conexion->error);
+        }
 
         // Redirigir a listado.php tras la actualización
         header('Location: listado.php');
         exit;
-
     } catch (Exception $e) {
-        die("Error al actualizar el producto: " . $e->getMessage());
+        die("Error al actualizar: " . $e->getMessage());
     }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Producto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="container mt-5">
         <h1>Actualizar Producto</h1>
@@ -107,4 +102,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </body>
+
 </html>

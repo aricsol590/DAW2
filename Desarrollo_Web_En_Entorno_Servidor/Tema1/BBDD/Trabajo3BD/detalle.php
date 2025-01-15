@@ -14,13 +14,10 @@ try {
     $sql = "SELECT p.*, f.nombre AS nombre_familia 
             FROM productos p 
             LEFT JOIN familias f ON p.familia = f.cod
-            WHERE p.id = ?";
-    $stmt = $conexion->prepare($sql);
+            WHERE p.id = $id";
+    $result = $conexion->query($sql);
 
-    if ($stmt) {
-        $stmt->bind_param('i', $id); // 'i' indica que es un entero
-        $stmt->execute();
-        $result = $stmt->get_result();
+    if ($result) {
         $producto = $result->fetch_assoc();
 
         // Si no se encuentra el producto, redirigir
@@ -28,26 +25,19 @@ try {
             header('Location: listado.php');
             exit;
         }
-
-        $stmt->close();
     } else {
-        throw new Exception("Error al preparar la consulta: " . $conexion->error);
+        throw new Exception("Error al obtener los detalles del producto: " . $conexion->error);
     }
 
     // Obtener el stock del producto
-    $sql_stock = "SELECT unidades FROM stocks WHERE producto = ?";
-    $stmt_stock = $conexion->prepare($sql_stock);
+    $sql_stock = "SELECT unidades FROM stocks WHERE producto = $id";
+    $result_stock = $conexion->query($sql_stock);
 
-    if ($stmt_stock) {
-        $stmt_stock->bind_param('i', $id);
-        $stmt_stock->execute();
-        $result_stock = $stmt_stock->get_result();
+    if ($result_stock) {
         $num_stock = $result_stock->fetch_assoc();
         $stock = $num_stock['unidades'] ?? 0;
-
-        $stmt_stock->close();
     } else {
-        throw new Exception("Error al preparar la consulta de stock: " . $conexion->error);
+        throw new Exception("Error al obtener el stock del producto: " . $conexion->error);
     }
 
 } catch (Exception $e) {

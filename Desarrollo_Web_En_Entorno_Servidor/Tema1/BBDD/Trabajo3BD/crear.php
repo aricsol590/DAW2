@@ -18,20 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $precio = $_POST['precio'];
     $familia = $_POST['familia'];
 
-    $sql = "INSERT INTO productos (nombre, descripcion, pvp, familia) VALUES (?, ?, ?, ?)";
-    $stmt = $conexion->prepare($sql);
-
-    if ($stmt) {
-        $stmt->bind_param('ssds', $nombre, $descripcion, $precio, $familia); // Tipos: string, string, double, string
-        if ($stmt->execute()) {
-            header('Location: listado.php');
-            exit;
-        } else {
-            echo "Error al crear el producto: " . $stmt->error;
-        }
-        $stmt->close();
+    // Insertar el producto en la base de datos
+    $sql = "INSERT INTO productos (nombre, descripcion, pvp, familia) VALUES ('$nombre', '$descripcion', $precio, $familia)";
+    
+    if ($conexion->query($sql)) {
+        header('Location: listado.php');
+        exit;
     } else {
-        echo "Error al preparar la consulta: " . $conexion->error;
+        echo "Error al crear el producto: " . $conexion->error;
     }
 }
 ?>

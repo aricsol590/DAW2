@@ -1,0 +1,37 @@
+
+@hole-size: 100px;
+@topo-size: 80px;
+@hole-margin: 10px;
+@hole-color: brown;
+@topo-color: gray;
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.juego {
+  display: grid;
+  grid-template-columns: repeat(3, @hole-size);
+  grid-gap: @hole-margin;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.hole {
+  width: @hole-size;
+  height: @hole-size;
+  background-color: @hole-color;
+  border-radius: 50%;
+  position: relative;
+}
+
+.topo {
+  width: @topo-size;
+  height: @topo-size;
+  background-color: @topo-color;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: none;
+}
