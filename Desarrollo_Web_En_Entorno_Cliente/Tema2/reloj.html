@@ -8,7 +8,7 @@
 <body onload="reloj(), timepoNavidad()">
     <p id="reloj1" style="font-family: 'Courier New', Courier, monospace;font-size: 25px;">Hora actual</p>
     <div id="reloj_actual" style="font-size: 50px;font-weight: bold;"></div>
-    <p id="reloj2" style="font-family: 'Courier New', Courier, monospace;font-size: 25px;">7 DE FEBRERO</p>
+    <p id="reloj2" style="font-family: 'Courier New', Courier, monospace;font-size: 25px;">12 de abril</p>
     <div id="reloj_navidad" style="font-size: 50px; font-weight: bold;"></div>
     <script>
         function reloj(){
@@ -29,7 +29,7 @@
 
             actual = new Date();
             aniActual = actual.getFullYear();
-            navidad = new Date(new Date(2025, 1, 14, 0, 0, 0));
+            navidad = new Date(new Date(2025, 3, 12, 0, 0, 0));
             diferencia = navidad-actual;
             const segundosTotales = Math.floor(diferencia/1000);
             const minutosTotales = Math.floor(segundosTotales/60);
